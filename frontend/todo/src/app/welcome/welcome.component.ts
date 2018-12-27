@@ -11,6 +11,7 @@ export class WelcomeComponent implements OnInit {
 
   name = '';
   message = 'Some Welcome Message';
+  welcomeMessageFromService: string;
 
   constructor(
     private router: ActivatedRoute,
@@ -23,10 +24,20 @@ export class WelcomeComponent implements OnInit {
   }
 
   getWelcomeMessage() {
-    console.log(this.service.executeHelloWorldBeanService());
+    // console.log(this.service.executeHelloWorldBeanService());
     this.service.executeHelloWorldBeanService().subscribe(
-
+      response => this.handleSuccessfulResponse(response),
+      error => this.handleErrorResponse(error)
     );
+  }
+
+  handleSuccessfulResponse(response) {
+    // console.log(response);
+    this.welcomeMessageFromService = response.message;
+  }
+
+  handleErrorResponse(error) {
+    this.welcomeMessageFromService = error.message;
   }
 
 }
