@@ -12,7 +12,7 @@ export class WelcomeDataService {
 
   executeHelloWorldBeanService() {
     return this.http.get('http://localhost:8080/hello-world-bean');
-    //console.log('Execute Hello World Bean Service');
+    // console.log('Execute Hello World Bean Service');
   }
 
 }
