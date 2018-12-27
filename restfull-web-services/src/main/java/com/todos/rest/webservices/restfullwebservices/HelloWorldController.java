@@ -2,6 +2,7 @@ package com.todos.rest.webservices.restfullwebservices;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 // Controller
@@ -21,8 +22,12 @@ public class HelloWorldController {
 	// hello-world-bean
 	@GetMapping(path = "/hello-world-bean")
 	public HelloWorldBean helloWorldBean() {
-		throw new RuntimeException("some error has happened!");
-		//return new HelloWorldBean("Hello World");
+		//throw new RuntimeException("some error has happened!");
+		return new HelloWorldBean("Hello World");
 	}
 	
+	@GetMapping(path = "/hello-world/path-variable/{name}")
+	public HelloWorldBean HelloWorldPathVariable(@PathVariable String name) {
+		return new HelloWorldBean(String.format("Hello World, %s",name));
+	}
 }
