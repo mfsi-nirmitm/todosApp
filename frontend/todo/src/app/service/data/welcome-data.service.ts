@@ -11,34 +11,32 @@ export class WelcomeDataService {
   ) { }
 
   executeHelloWorldBeanService() {
-    const basicAuthHeaderString = this.createBasicAuthenticationHttpHeader();
+    // const basicAuthHeaderString = this.createBasicAuthenticationHttpHeader();
 
-    const headers = new HttpHeaders({
-      Authorization: basicAuthHeaderString
-    });
+    // const headers = new HttpHeaders({
+    //   Authorization: basicAuthHeaderString
+    // });
 
-    return this.http.get('http://localhost:8080/hello-world-bean',
-    {headers});
+    return this.http.get('http://localhost:8080/hello-world-bean');
     // console.log('Execute Hello World Bean Service');
   }
 
   executeHelloWorldBeanServiceWithPathVariable(name) {
 
-    const basicAuthHeaderString = this.createBasicAuthenticationHttpHeader();
+    // const basicAuthHeaderString = this.createBasicAuthenticationHttpHeader();
 
-    const headers = new HttpHeaders({
-      Authorization: basicAuthHeaderString
-    });
+    // const headers = new HttpHeaders({
+    //   Authorization: basicAuthHeaderString
+    // });
 
-    return this.http.get(`http://localhost:8080/hello-world/path-variable/${name}`,
-    {headers});
+    return this.http.get(`http://localhost:8080/hello-world/path-variable/${name}`);
     // console.log('Execute Hello World Bean Service');
   }
 
-  createBasicAuthenticationHttpHeader() {
-    const username = 'ashok';
-    const password = 'ashok1';
-    const basicAuthHeaderString = 'Basic ' + window.btoa(username + ':' + password);
-    return basicAuthHeaderString;
-  }
+  // createBasicAuthenticationHttpHeader() {
+  //   const username = 'ashok';
+  //   const password = 'ashok1';
+  //   const basicAuthHeaderString = 'Basic ' + window.btoa(username + ':' + password);
+  //   return basicAuthHeaderString;
+  // }
 }
